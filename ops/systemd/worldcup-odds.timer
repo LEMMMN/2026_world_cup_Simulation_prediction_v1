@@ -1,0 +1,12 @@
+[Unit]
+Description=世界杯十分钟赔率精算定时器
+
+[Timer]
+# 每十分钟采集一次赔率与比赛摘要。
+OnCalendar=*:0/10
+Persistent=true
+AccuracySec=20s
+Unit=worldcup-odds.service
+
+[Install]
+WantedBy=timers.target

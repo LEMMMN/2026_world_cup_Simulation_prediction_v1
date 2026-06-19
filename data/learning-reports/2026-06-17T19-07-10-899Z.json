@@ -1,0 +1,1278 @@
+{
+  "generatedAt": "2026-06-17T19:07:10.899Z",
+  "intervalHours": 6,
+  "snapshotCount": 0,
+  "newReviewCount": 0,
+  "refreshedReviewCount": 0,
+  "newBackfillCount": 0,
+  "totalReviewed": 21,
+  "model": {
+    "reviewCount": 21,
+    "prematchReviewCount": 5,
+    "backfillReviewCount": 16,
+    "weightedReviewCount": 13.8,
+    "exactRate": 0.24,
+    "top3Rate": 0.35,
+    "resultRate": 0.47,
+    "avgGoalError": 1.68,
+    "homeGoalBias": 0.5,
+    "awayGoalBias": 0.03,
+    "totalGoalBias": 0.77,
+    "factorReliability": {
+      "历史对战": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0.32,
+        "reliability": 0.47
+      },
+      "近期状态": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0.5,
+        "reliability": 0.47
+      },
+      "伤病与阵容消息": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": -0.13,
+        "reliability": 0.47
+      },
+      "吃牌风险": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0.02,
+        "reliability": 0.47
+      },
+      "比赛日天气": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": -0.01,
+        "reliability": 0.47
+      },
+      "裁判影响": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0.02,
+        "reliability": 0.47
+      },
+      "主场影响": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0.08,
+        "reliability": 0.47
+      },
+      "小组形势": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": -0.1,
+        "reliability": 0.47
+      },
+      "32强路径战意": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": -0.02,
+        "reliability": 0.47
+      },
+      "赔率市场预期": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0.16,
+        "reliability": 0.47
+      },
+      "赔率精算压力": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0,
+        "reliability": 0.47
+      },
+      "教练风格": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0.12,
+        "reliability": 0.47
+      },
+      "阵型克制": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": -0.01,
+        "reliability": 0.47
+      },
+      "球员熟悉度": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0,
+        "reliability": 0.47
+      },
+      "政治/旅行风险": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": -0.17,
+        "reliability": 0.47
+      },
+      "自我学习校准": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0,
+        "reliability": 0.47
+      },
+      "首发完整度": {
+        "count": 21,
+        "weightedCount": 13.8,
+        "missRate": 0.53,
+        "avgEffect": 0,
+        "reliability": 0.47
+      }
+    },
+    "reasonStats": {
+      "result-miss": {
+        "count": 10,
+        "sampleWeight": 7.3,
+        "weight": 21.9,
+        "label": "胜平负方向偏差"
+      },
+      "goal-error": {
+        "count": 10,
+        "sampleWeight": 6.85,
+        "weight": 13.7,
+        "label": "总进球误差"
+      },
+      "tactical-miss": {
+        "count": 14,
+        "sampleWeight": 9.5,
+        "weight": 13.3,
+        "label": "战术匹配偏差"
+      },
+      "actuary-pressure": {
+        "count": 10,
+        "sampleWeight": 7.3,
+        "weight": 13.14,
+        "label": "精算压力偏差"
+      },
+      "factor-weight": {
+        "count": 15,
+        "sampleWeight": 10.5,
+        "weight": 10.5,
+        "label": "赛前权重复盘"
+      },
+      "total-line-miss": {
+        "count": 10,
+        "sampleWeight": 6.85,
+        "weight": 10.28,
+        "label": "大小球线偏差"
+      },
+      "odds-correct": {
+        "count": 6,
+        "sampleWeight": 4.65,
+        "weight": 9.3,
+        "label": "赔率更接近"
+      },
+      "political-risk": {
+        "count": 12,
+        "sampleWeight": 8.85,
+        "weight": 8.85,
+        "label": "政治/旅行风险"
+      }
+    },
+    "correctionNotes": [
+      "近期实际总进球偏高，自动上调总进球倾向。",
+      "赔率方向多次更接近实际，盘口信号权重需要提高。",
+      "赔率精算压力已进入复盘，庄家边际、比分赔率和盘口变化权重需要继续校准。",
+      "战术匹配偏差进入复盘，教练风格、阵型克制和球员关系权重需要继续校准。"
+    ]
+  },
+  "recent": [
+    {
+      "eventId": "760423",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Ivory Coast",
+        "away": "Ecuador"
+      },
+      "predicted": "1-1",
+      "scorePredictions": [
+        "1-1 10%",
+        "2-1 9%",
+        "1-2 8%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "客胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.85"
+      },
+      "actual": "1-0",
+      "exactHit": false,
+      "top3Hit": false,
+      "resultHit": false,
+      "goalError": 1,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "庄家边际最高方向为客胜，与赛果/模型偏差有关，后续提高精算压力复盘权重。",
+        "75分钟后出现1个进球，末段体能和换人影响较大。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "教练风格、阵型克制或球员熟悉度可能解释偏差，后续会提高战术匹配复盘权重。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：小组形势(-0.4)、吃牌风险(-0.24)、近期状态(0.2)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 0,
+          "away": -1,
+          "total": -1,
+          "margin": 1
+        },
+        "cardStats": {
+          "total": 4,
+          "yellowCards": 4,
+          "redCards": 0,
+          "teams": {
+            "209": 1,
+            "4789": 3
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 1,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-4-2",
+            "away": "4-4-2"
+          }
+        },
+        "weather": {
+          "temperature": 28.5,
+          "precipitationProbability": 0,
+          "windSpeed": 17.6,
+          "severe": false,
+          "label": "28.5°C，降水0%，风速17.6km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "away",
+          "implied": {
+            "home": 0.2956,
+            "draw": 0.3202,
+            "away": 0.3842
+          },
+          "overUnder": 1.5
+        },
+        "actuary": {
+          "marketMargin": 0.041,
+          "overround": 1.041,
+          "bestForBook": "客胜",
+          "publicLean": "away",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.85",
+          "label": "庄家水位约4.1%，客胜对庄家边际最高（1.6%）；市场倾向客胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760424",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Sweden",
+        "away": "Tunisia"
+      },
+      "predicted": "1-1",
+      "scorePredictions": [
+        "1-1 10%",
+        "2-1 10%",
+        "1-0 9%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "主胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.46"
+      },
+      "actual": "5-1",
+      "exactHit": false,
+      "top3Hit": false,
+      "resultHit": false,
+      "goalError": 4,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "总进球误差为4，需要复查首发、红黄牌、天气和大小球线。",
+        "前20分钟出现1个进球，早段进球会打乱原有节奏。",
+        "赔率市场方向比本模型更接近赛果，后续需要提高盘口信号权重。",
+        "庄家边际最高方向为主胜，与赛果/模型偏差有关，后续提高精算压力复盘权重。",
+        "75分钟后出现2个进球，末段体能和换人影响较大。",
+        "实际进球数高于预测，后续会适当上调开放比赛的总进球倾向。",
+        "实际总进球6与大小球线2.5差距明显，需调整总进球模型。",
+        "教练风格、阵型克制或球员熟悉度可能解释偏差，后续会提高战术匹配复盘权重。",
+        "赛前主要权重：近期状态(1.2)、教练风格(0.38)、赔率市场预期(0.29)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 4,
+          "away": 0,
+          "total": 4,
+          "margin": 4
+        },
+        "cardStats": {
+          "total": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "teams": {
+            "659": 1
+          }
+        },
+        "earlyGoals": 1,
+        "lateGoals": 2,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "3-1-4-2",
+            "away": "5-3-2"
+          }
+        },
+        "weather": {
+          "label": "天气数据待补全",
+          "severe": false
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.5036,
+            "draw": 0.2828,
+            "away": 0.2136
+          },
+          "overUnder": 2.5
+        },
+        "actuary": {
+          "marketMargin": 0.0401,
+          "overround": 1.0401,
+          "bestForBook": "主胜",
+          "publicLean": "home",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.46",
+          "label": "庄家水位约4%，主胜对庄家边际最高（2%）；市场倾向主胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760425",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Netherlands",
+        "away": "Japan"
+      },
+      "predicted": "2-1",
+      "scorePredictions": [
+        "2-1 10%",
+        "2-0 10%",
+        "1-1 9%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "主胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "2-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.71"
+      },
+      "actual": "2-2",
+      "exactHit": false,
+      "top3Hit": false,
+      "resultHit": false,
+      "goalError": 1,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "庄家边际最高方向为主胜，与赛果/模型偏差有关，后续提高精算压力复盘权重。",
+        "实际进球数高于预测，后续会适当上调开放比赛的总进球倾向。",
+        "赔率市场与本模型同向但一起偏离，说明本场存在赛后突发或低概率事件。",
+        "实际总进球4与大小球线2.5差距明显，需调整总进球模型。",
+        "教练风格、阵型克制或球员熟悉度可能解释偏差，后续会提高战术匹配复盘权重。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：历史对战(6)、近期状态(-1)、小组形势(-0.4)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 0,
+          "away": 1,
+          "total": 1,
+          "margin": -1
+        },
+        "cardStats": {
+          "total": 3,
+          "yellowCards": 3,
+          "redCards": 0,
+          "teams": {
+            "449": 3
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-3-3",
+            "away": "3-4-2-1"
+          }
+        },
+        "weather": {
+          "temperature": 28.6,
+          "precipitationProbability": 0,
+          "windSpeed": 13,
+          "severe": false,
+          "label": "28.6°C，降水0%，风速13km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.2349,
+            "draw": 0.1382,
+            "away": 0.127
+          },
+          "overUnder": 2.5
+        },
+        "actuary": {
+          "marketMargin": 0.0322,
+          "overround": 0.5322,
+          "bestForBook": "主胜",
+          "publicLean": "home",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "2-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.71",
+          "label": "庄家水位约3.2%，主胜对庄家边际最高（1.5%）；市场倾向主胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760426",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Belgium",
+        "away": "Egypt"
+      },
+      "predicted": "1-1",
+      "scorePredictions": [
+        "1-1 10%",
+        "2-1 9%",
+        "1-2 7%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "主胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 10.22"
+      },
+      "actual": "1-1",
+      "exactHit": true,
+      "top3Hit": true,
+      "resultHit": true,
+      "goalError": 0,
+      "reasons": [
+        "比分完全命中，保持当前权重观察。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 0,
+          "away": 0,
+          "total": 0,
+          "margin": 0
+        },
+        "cardStats": {
+          "total": 4,
+          "yellowCards": 4,
+          "redCards": 0,
+          "teams": {
+            "459": 2,
+            "2620": 2
+          }
+        },
+        "earlyGoals": 1,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-2-3-1",
+            "away": "4-2-3-1"
+          }
+        },
+        "weather": {
+          "temperature": 27.5,
+          "precipitationProbability": 0,
+          "windSpeed": 1.8,
+          "severe": false,
+          "label": "27.5°C，降水0%，风速1.8km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.3149,
+            "draw": 0.1125,
+            "away": 0.0727
+          },
+          "overUnder": 2.5
+        },
+        "actuary": {
+          "marketMargin": 0.0293,
+          "overround": 0.5293,
+          "bestForBook": "主胜",
+          "publicLean": "home",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 10.22",
+          "label": "庄家水位约2.9%，主胜对庄家边际最高（1.8%）；市场倾向主胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760427",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Iran",
+        "away": "New Zealand"
+      },
+      "predicted": "1-1",
+      "scorePredictions": [
+        "1-1 11%",
+        "2-1 9%",
+        "1-0 8%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "主胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 8.44"
+      },
+      "actual": "2-2",
+      "exactHit": false,
+      "top3Hit": false,
+      "resultHit": true,
+      "goalError": 2,
+      "reasons": [
+        "总进球误差为2，需要复查首发、红黄牌、天气和大小球线。",
+        "前20分钟出现1个进球，早段进球会打乱原有节奏。",
+        "实际进球数高于预测，后续会适当上调开放比赛的总进球倾向。",
+        "实际总进球4与大小球线2.5差距明显，需调整总进球模型。",
+        "教练风格、阵型克制或球员熟悉度可能解释偏差，后续会提高战术匹配复盘权重。",
+        "存在政治/签证/旅行风险线索：高。",
+        "赛前主要权重：政治/旅行风险(-2.1)、近期状态(1.2)、赔率市场预期(0.3)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 1,
+          "away": 1,
+          "total": 2,
+          "margin": 0
+        },
+        "cardStats": {
+          "total": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "teams": {
+            "469": 1
+          }
+        },
+        "earlyGoals": 1,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-4-2",
+            "away": "4-2-3-1"
+          }
+        },
+        "weather": {
+          "temperature": 21.9,
+          "precipitationProbability": 0,
+          "windSpeed": 12.2,
+          "severe": false,
+          "label": "21.9°C，降水0%，风速12.2km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.5109,
+            "draw": 0.2769,
+            "away": 0.2123
+          },
+          "overUnder": 2.5
+        },
+        "actuary": {
+          "marketMargin": 0.047,
+          "overround": 1.047,
+          "bestForBook": "主胜",
+          "publicLean": "home",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 8.44",
+          "label": "庄家水位约4.7%，主胜对庄家边际最高（2.4%）；市场倾向主胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760428",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Spain",
+        "away": "Cape Verde"
+      },
+      "predicted": "1-1",
+      "scorePredictions": [
+        "1-1 10%",
+        "2-1 9%",
+        "1-2 7%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "主胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.48"
+      },
+      "actual": "0-0",
+      "exactHit": false,
+      "top3Hit": false,
+      "resultHit": true,
+      "goalError": 2,
+      "reasons": [
+        "总进球误差为2，需要复查首发、红黄牌、天气和大小球线。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "实际总进球0与大小球线3.5差距明显，需调整总进球模型。",
+        "教练风格、阵型克制或球员熟悉度可能解释偏差，后续会提高战术匹配复盘权重。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：近期状态(0.6)、赔率市场预期(0.41)、小组形势(-0.4)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": -1,
+          "away": -1,
+          "total": -2,
+          "margin": 0
+        },
+        "cardStats": {
+          "total": 2,
+          "yellowCards": 2,
+          "redCards": 0,
+          "teams": {
+            "164": 1,
+            "2597": 1
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-3-3",
+            "away": "4-1-4-1"
+          }
+        },
+        "weather": {
+          "temperature": 26.1,
+          "precipitationProbability": 0,
+          "windSpeed": 11.2,
+          "severe": false,
+          "label": "26.1°C，降水0%，风速11.2km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.4339,
+            "draw": 0.0434,
+            "away": 0.0228
+          },
+          "overUnder": 3.5
+        },
+        "actuary": {
+          "marketMargin": 0.0238,
+          "overround": 0.5238,
+          "bestForBook": "主胜",
+          "publicLean": "home",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.48",
+          "label": "庄家水位约2.4%，主胜对庄家边际最高（2.1%）；市场倾向主胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760429",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Saudi Arabia",
+        "away": "Uruguay"
+      },
+      "predicted": "1-1",
+      "scorePredictions": [
+        "1-1 13%",
+        "0-1 11%",
+        "1-0 9%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "客胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 7.63"
+      },
+      "actual": "1-1",
+      "exactHit": true,
+      "top3Hit": true,
+      "resultHit": true,
+      "goalError": 0,
+      "reasons": [
+        "比分完全命中，保持当前权重观察。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 0,
+          "away": 0,
+          "total": 0,
+          "margin": 0
+        },
+        "cardStats": {
+          "total": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "teams": {
+            "655": 1
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 1,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-4-2",
+            "away": "4-2-3-1"
+          }
+        },
+        "weather": {
+          "temperature": 31.6,
+          "precipitationProbability": 0,
+          "windSpeed": 10.6,
+          "severe": true,
+          "label": "31.6°C，降水0%，风速10.6km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "away",
+          "implied": {
+            "home": 0.0636,
+            "draw": 0.1162,
+            "away": 0.3203
+          },
+          "overUnder": 2.5
+        },
+        "actuary": {
+          "marketMargin": 0.0247,
+          "overround": 0.5247,
+          "bestForBook": "客胜",
+          "publicLean": "away",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 7.63",
+          "label": "庄家水位约2.5%，客胜对庄家边际最高（1.6%）；市场倾向客胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760430",
+      "reviewMode": "prematch",
+      "sampleWeight": 1,
+      "teams": {
+        "home": "Iraq",
+        "away": "Norway"
+      },
+      "predicted": "1-1",
+      "scorePredictions": [
+        "1-1 10%",
+        "1-2 8%",
+        "2-1 8%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "客胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.39"
+      },
+      "actual": "1-4",
+      "exactHit": false,
+      "top3Hit": false,
+      "resultHit": false,
+      "goalError": 3,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "总进球误差为3，需要复查首发、红黄牌、天气和大小球线。",
+        "赔率市场方向比本模型更接近赛果，后续需要提高盘口信号权重。",
+        "庄家边际最高方向为客胜，与赛果/模型偏差有关，后续提高精算压力复盘权重。",
+        "实际进球数高于预测，后续会适当上调开放比赛的总进球倾向。",
+        "实际总进球5与大小球线2.5差距明显，需调整总进球模型。",
+        "教练风格、阵型克制或球员熟悉度可能解释偏差，后续会提高战术匹配复盘权重。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：赔率市场预期(-0.72)、近期状态(0.4)、教练风格(-0.3)。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 0,
+          "away": 3,
+          "total": 3,
+          "margin": -3
+        },
+        "cardStats": {
+          "total": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "teams": {
+            "4375": 1
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-4-2",
+            "away": "4-4-2"
+          }
+        },
+        "weather": {
+          "temperature": 23.3,
+          "precipitationProbability": 0,
+          "windSpeed": 7.8,
+          "severe": false,
+          "label": "23.3°C，降水0%，风速7.8km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "away",
+          "implied": {
+            "home": 0.0369,
+            "draw": 0.074,
+            "away": 0.3891
+          },
+          "overUnder": 2.5
+        },
+        "actuary": {
+          "marketMargin": 0.0202,
+          "overround": 0.5202,
+          "bestForBook": "客胜",
+          "publicLean": "away",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.39",
+          "label": "庄家水位约2%，客胜对庄家边际最高（1.6%）；市场倾向客胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760431",
+      "reviewMode": "prematch",
+      "sampleWeight": 1,
+      "teams": {
+        "home": "Austria",
+        "away": "Jordan"
+      },
+      "predicted": "2-1",
+      "scorePredictions": [
+        "2-1 10%",
+        "1-1 9%",
+        "2-0 9%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "主胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "2-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.89"
+      },
+      "actual": "3-1",
+      "exactHit": false,
+      "top3Hit": false,
+      "resultHit": true,
+      "goalError": 1,
+      "reasons": [
+        "实际进球数高于预测，后续会适当上调开放比赛的总进球倾向。",
+        "实际总进球4与大小球线2.5差距明显，需调整总进球模型。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：近期状态(2)、赔率市场预期(0.57)、教练风格(0.21)。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 1,
+          "away": 0,
+          "total": 1,
+          "margin": 1
+        },
+        "cardStats": {
+          "total": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "teams": {
+            "474": 1
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-2-3-1",
+            "away": "3-4-2-1"
+          }
+        },
+        "weather": {
+          "temperature": 19.1,
+          "precipitationProbability": 0,
+          "windSpeed": 11.2,
+          "severe": false,
+          "label": "19.1°C，降水0%，风速11.2km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.6922,
+            "draw": 0.2008,
+            "away": 0.1071
+          },
+          "overUnder": 2.5
+        },
+        "actuary": {
+          "marketMargin": 0.0378,
+          "overround": 1.0378,
+          "bestForBook": "主胜",
+          "publicLean": "home",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "2-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.89",
+          "label": "庄家水位约3.8%，主胜对庄家边际最高（2.6%）；市场倾向主胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760432",
+      "reviewMode": "prematch",
+      "sampleWeight": 1,
+      "teams": {
+        "home": "France",
+        "away": "Senegal"
+      },
+      "predicted": "1-1",
+      "scorePredictions": [
+        "1-1 10%",
+        "2-1 9%",
+        "1-2 8%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "主胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.61"
+      },
+      "actual": "3-1",
+      "exactHit": false,
+      "top3Hit": false,
+      "resultHit": false,
+      "goalError": 2,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "总进球误差为2，需要复查首发、红黄牌、天气和大小球线。",
+        "赔率市场方向比本模型更接近赛果，后续需要提高盘口信号权重。",
+        "庄家边际最高方向为主胜，与赛果/模型偏差有关，后续提高精算压力复盘权重。",
+        "75分钟后出现3个进球，末段体能和换人影响较大。",
+        "实际进球数高于预测，后续会适当上调开放比赛的总进球倾向。",
+        "实际总进球4与大小球线2.5差距明显，需调整总进球模型。",
+        "教练风格、阵型克制或球员熟悉度可能解释偏差，后续会提高战术匹配复盘权重。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：历史对战(-2)、赔率市场预期(0.52)、近期状态(0.4)。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 2,
+          "away": 0,
+          "total": 2,
+          "margin": 2
+        },
+        "cardStats": {
+          "total": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "teams": {}
+        },
+        "earlyGoals": 0,
+        "lateGoals": 3,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-2-3-1",
+            "away": "4-2-3-1"
+          }
+        },
+        "weather": {
+          "temperature": 24.7,
+          "precipitationProbability": 0,
+          "windSpeed": 3.9,
+          "severe": false,
+          "label": "24.7°C，降水0%，风速3.9km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.3182,
+            "draw": 0.1085,
+            "away": 0.0734
+          },
+          "overUnder": 2.5
+        },
+        "actuary": {
+          "marketMargin": 0.0239,
+          "overround": 0.5239,
+          "bestForBook": "主胜",
+          "publicLean": "home",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "1-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.61",
+          "label": "庄家水位约2.4%，主胜对庄家边际最高（1.5%）；市场倾向主胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760433",
+      "reviewMode": "prematch",
+      "sampleWeight": 1,
+      "teams": {
+        "home": "Argentina",
+        "away": "Algeria"
+      },
+      "predicted": "2-2",
+      "scorePredictions": [
+        "2-1 10%",
+        "1-1 8%",
+        "2-0 8%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "主胜",
+        "movement": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+        "scoreImpact": "2-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 10.03"
+      },
+      "actual": "3-0",
+      "exactHit": false,
+      "top3Hit": false,
+      "resultHit": false,
+      "goalError": 3,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "总进球误差为3，需要复查首发、红黄牌、天气和大小球线。",
+        "前20分钟出现1个进球，早段进球会打乱原有节奏。",
+        "赔率市场方向比本模型更接近赛果，后续需要提高盘口信号权重。",
+        "庄家边际最高方向为主胜，与赛果/模型偏差有关，后续提高精算压力复盘权重。",
+        "75分钟后出现1个进球，末段体能和换人影响较大。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "教练风格、阵型克制或球员熟悉度可能解释偏差，后续会提高战术匹配复盘权重。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛后/赛前相关新闻命中1条，需结合标题复盘阵容和突发因素。",
+        "赛前主要权重：历史对战(2)、伤病与阵容消息(-1.2)、近期状态(1)。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 1,
+          "away": -2,
+          "total": -1,
+          "margin": 3
+        },
+        "cardStats": {
+          "total": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "teams": {}
+        },
+        "earlyGoals": 1,
+        "lateGoals": 1,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-4-2",
+            "away": "4-3-3"
+          }
+        },
+        "weather": {
+          "temperature": 25.1,
+          "precipitationProbability": 0,
+          "windSpeed": 3.1,
+          "severe": false,
+          "label": "25.1°C，降水0%，风速3.1km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.6201,
+            "draw": 0.233,
+            "away": 0.147
+          },
+          "overUnder": 2.5
+        },
+        "actuary": {
+          "marketMargin": 0.0469,
+          "overround": 1.0469,
+          "bestForBook": "主胜",
+          "publicLean": "home",
+          "movementLabel": "首次赔率快照，等待下一次10分钟刷新形成变化趋势",
+          "volatility": 0,
+          "scoreImpact": "2-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 10.03",
+          "label": "庄家水位约4.7%，主胜对庄家边际最高（2.9%）；市场倾向主胜，首次赔率快照，等待下一次10分钟刷新形成变化趋势"
+        },
+        "newsCount": 1
+      }
+    },
+    {
+      "eventId": "760435",
+      "reviewMode": "prematch",
+      "sampleWeight": 1,
+      "teams": {
+        "home": "Portugal",
+        "away": "Congo DR"
+      },
+      "predicted": "2-1",
+      "scorePredictions": [
+        "2-1 10%",
+        "1-1 10%",
+        "2-0 8%"
+      ],
+      "oddsActuary": {
+        "bestForBook": "主胜",
+        "movement": "胜平负盘口变化较小",
+        "scoreImpact": "2-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.85"
+      },
+      "actual": "1-1",
+      "exactHit": false,
+      "top3Hit": true,
+      "resultHit": false,
+      "goalError": 1,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "庄家边际最高方向为主胜，与赛果/模型偏差有关，后续提高精算压力复盘权重。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "赔率市场与本模型同向但一起偏离，说明本场存在赛后突发或低概率事件。",
+        "教练风格、阵型克制或球员熟悉度可能解释偏差，后续会提高战术匹配复盘权重。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：近期状态(1.2)、赔率市场预期(0.67)、阵型克制(0.1)。",
+        "准确比分未命中首选，但已被前三比分方案覆盖，说明概率分布方向可保留。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": -1,
+          "away": 0,
+          "total": -1,
+          "margin": -1
+        },
+        "cardStats": {
+          "total": 4,
+          "yellowCards": 4,
+          "redCards": 0,
+          "teams": {
+            "482": 3,
+            "2850": 1
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-2-3-1",
+            "away": "5-3-2"
+          }
+        },
+        "weather": {
+          "label": "天气数据待补全",
+          "severe": false
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.3729,
+            "draw": 0.0872,
+            "away": 0.04
+          },
+          "overUnder": 2.5
+        },
+        "actuary": {
+          "marketMargin": 0.0445,
+          "overround": 1.0445,
+          "bestForBook": "主胜",
+          "publicLean": "home",
+          "movementLabel": "胜平负盘口变化较小",
+          "volatility": 0,
+          "scoreImpact": "2-1 是当前前三比分里庄家赔付压力最低的模型化比分，理论庄家赔率约 9.85",
+          "label": "庄家水位约4.5%，主胜对庄家边际最高（3.3%）；市场倾向主胜，胜平负盘口变化较小"
+        },
+        "newsCount": 0
+      }
+    }
+  ]
+}

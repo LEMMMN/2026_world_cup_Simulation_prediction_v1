@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-06-16T03:21:53.738Z",
+  "snapshotCount": 88,
+  "newReviewCount": 0,
+  "totalReviewed": 0,
+  "model": {
+    "reviewCount": 0,
+    "exactRate": 0,
+    "resultRate": 0,
+    "avgGoalError": 0,
+    "homeGoalBias": 0,
+    "awayGoalBias": 0
+  },
+  "recent": []
+}

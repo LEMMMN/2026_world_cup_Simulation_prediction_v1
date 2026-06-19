@@ -1,0 +1,21 @@
+[Unit]
+Description=世界杯每小时学习与沙盘
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=worldcup
+Group=worldcup
+WorkingDirectory=/opt/worldcup-collector
+EnvironmentFile=/etc/worldcup-collector.env
+# 两类刷新共用文件锁，避免低内存服务器并发执行。
+ExecStart=/usr/bin/flock -n -E 0 /opt/worldcup-collector/data/.refresh.lock /usr/local/bin/node src/jobs/hourly-learning.js
+Nice=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/worldcup-collector/data
+MemoryMax=1500M
+TimeoutStartSec=50min

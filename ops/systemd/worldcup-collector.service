@@ -1,0 +1,30 @@
+[Unit]
+Description=2026 World Cup Collector
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=worldcup
+Group=worldcup
+WorkingDirectory=/opt/worldcup-collector
+EnvironmentFile=/etc/worldcup-collector.env
+ExecStart=/usr/local/bin/node src/server.js
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+UMask=0027
+
+# 服务只需要修改持久化数据，其他系统路径保持只读。
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/worldcup-collector/data
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+CapabilityBoundingSet=
+LockPersonality=true
+MemoryMax=1500M
+
+[Install]
+WantedBy=multi-user.target

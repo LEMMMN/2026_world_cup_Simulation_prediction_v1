@@ -1,0 +1,988 @@
+{
+  "generatedAt": "2026-06-16T18:52:31.896Z",
+  "intervalHours": 6,
+  "snapshotCount": 0,
+  "newReviewCount": 0,
+  "newBackfillCount": 0,
+  "totalReviewed": 16,
+  "model": {
+    "reviewCount": 16,
+    "prematchReviewCount": 0,
+    "backfillReviewCount": 16,
+    "weightedReviewCount": 8.8,
+    "exactRate": 0.19,
+    "resultRate": 0.63,
+    "avgGoalError": 1.81,
+    "homeGoalBias": 0.44,
+    "awayGoalBias": -0.37,
+    "totalGoalBias": 0.06,
+    "factorReliability": {
+      "历史对战": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": 0.5,
+        "reliability": 0.63
+      },
+      "近期状态": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": 0.21,
+        "reliability": 0.63
+      },
+      "伤病与阵容消息": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": 0.09,
+        "reliability": 0.63
+      },
+      "吃牌风险": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": 0.03,
+        "reliability": 0.63
+      },
+      "比赛日天气": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": -0.01,
+        "reliability": 0.63
+      },
+      "裁判影响": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": 0.04,
+        "reliability": 0.63
+      },
+      "主场影响": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": 0.13,
+        "reliability": 0.63
+      },
+      "小组形势": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": -0.15,
+        "reliability": 0.63
+      },
+      "32强路径战意": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": -0.02,
+        "reliability": 0.63
+      },
+      "赔率市场预期": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": 0.08,
+        "reliability": 0.63
+      },
+      "政治/旅行风险": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": -0.24,
+        "reliability": 0.63
+      },
+      "自我学习校准": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": -0.5,
+        "reliability": 0.63
+      },
+      "首发完整度": {
+        "count": 16,
+        "weightedCount": 8.8,
+        "missRate": 0.38,
+        "avgEffect": 0,
+        "reliability": 0.63
+      }
+    },
+    "reasonStats": {
+      "result-miss": {
+        "count": 6,
+        "sampleWeight": 3.3,
+        "weight": 9.9,
+        "label": "胜平负方向偏差"
+      },
+      "goal-error": {
+        "count": 9,
+        "sampleWeight": 4.95,
+        "weight": 9.9,
+        "label": "总进球误差"
+      },
+      "factor-weight": {
+        "count": 13,
+        "sampleWeight": 7.15,
+        "weight": 7.15,
+        "label": "赛前权重复盘"
+      },
+      "political-risk": {
+        "count": 11,
+        "sampleWeight": 6.05,
+        "weight": 6.05,
+        "label": "政治/旅行风险"
+      },
+      "total-line-miss": {
+        "count": 7,
+        "sampleWeight": 3.85,
+        "weight": 5.78,
+        "label": "大小球线偏差"
+      },
+      "total-over": {
+        "count": 7,
+        "sampleWeight": 3.85,
+        "weight": 5.78,
+        "label": "实际进球偏低"
+      },
+      "early-goal": {
+        "count": 4,
+        "sampleWeight": 2.2,
+        "weight": 4.4,
+        "label": "早段进球"
+      },
+      "late-goal": {
+        "count": 5,
+        "sampleWeight": 2.75,
+        "weight": 4.13,
+        "label": "末段进球"
+      }
+    },
+    "correctionNotes": []
+  },
+  "recent": [
+    {
+      "eventId": "760418",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Haiti",
+        "away": "Scotland"
+      },
+      "predicted": "1-2",
+      "actual": "0-1",
+      "exactHit": false,
+      "resultHit": true,
+      "goalError": 2,
+      "reasons": [
+        "总进球误差为2，需要复查首发、红黄牌、天气和大小球线。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "实际总进球1与大小球线2.5差距明显，需调整总进球模型。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：历史对战(-2)、近期状态(-1)、自我学习校准(-0.5)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": -1,
+          "away": -1,
+          "total": -2,
+          "margin": 0
+        },
+        "cardStats": {
+          "total": 4,
+          "yellowCards": 4,
+          "redCards": 0,
+          "teams": {
+            "580": 3,
+            "2654": 1
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-4-2",
+            "away": "4-4-2"
+          }
+        },
+        "weather": {
+          "temperature": 25.2,
+          "precipitationProbability": 0,
+          "windSpeed": 11.5,
+          "severe": false,
+          "label": "25.2°C，降水0%，风速11.5km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "away",
+          "implied": {
+            "home": 0.1825,
+            "draw": 0.2281,
+            "away": 0.5895
+          },
+          "overUnder": 2.5
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760419",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Brazil",
+        "away": "Morocco"
+      },
+      "predicted": "2-1",
+      "actual": "1-1",
+      "exactHit": false,
+      "resultHit": false,
+      "goalError": 1,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "赔率市场与本模型同向但一起偏离，说明本场存在赛后突发或低概率事件。",
+        "比赛日天气异常：31°C，降水0%，风速13km/h，可能压低或改变节奏。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛后/赛前相关新闻命中1条，需结合标题复盘阵容和突发因素。",
+        "赛前主要权重：自我学习校准(-0.5)、小组形势(-0.4)、吃牌风险(-0.24)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": -1,
+          "away": 0,
+          "total": -1,
+          "margin": -1
+        },
+        "cardStats": {
+          "total": 2,
+          "yellowCards": 2,
+          "redCards": 0,
+          "teams": {
+            "205": 2
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-2-3-1",
+            "away": "4-2-3-1"
+          }
+        },
+        "weather": {
+          "temperature": 31,
+          "precipitationProbability": 0,
+          "windSpeed": 13,
+          "severe": true,
+          "label": "31°C，降水0%，风速13km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.2863,
+            "draw": 0.1308,
+            "away": 0.083
+          },
+          "overUnder": 2.5
+        },
+        "newsCount": 1
+      }
+    },
+    {
+      "eventId": "760420",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Qatar",
+        "away": "Switzerland"
+      },
+      "predicted": "1-1",
+      "actual": "1-1",
+      "exactHit": true,
+      "resultHit": true,
+      "goalError": 0,
+      "reasons": [
+        "比分完全命中，保持当前权重观察。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 0,
+          "away": 0,
+          "total": 0,
+          "margin": 0
+        },
+        "cardStats": {
+          "total": 3,
+          "yellowCards": 3,
+          "redCards": 0,
+          "teams": {
+            "475": 1,
+            "4398": 2
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-3-3",
+            "away": "4-3-3"
+          }
+        },
+        "weather": {
+          "temperature": 27.9,
+          "precipitationProbability": 0,
+          "windSpeed": 7,
+          "severe": false,
+          "label": "27.9°C，降水0%，风速7km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "away",
+          "implied": {
+            "home": 0.0299,
+            "draw": 0.0683,
+            "away": 0.4018
+          },
+          "overUnder": 2.5
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760421",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Australia",
+        "away": "Türkiye"
+      },
+      "predicted": "1-2",
+      "actual": "2-0",
+      "exactHit": false,
+      "resultHit": false,
+      "goalError": 3,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "总进球误差为3，需要复查首发、红黄牌、天气和大小球线。",
+        "75分钟后出现1个进球，末段体能和换人影响较大。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "赔率市场与本模型同向但一起偏离，说明本场存在赛后突发或低概率事件。",
+        "赛前主要权重：历史对战(-2)、自我学习校准(-0.5)、近期状态(-0.4)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 1,
+          "away": -2,
+          "total": -1,
+          "margin": 3
+        },
+        "cardStats": {
+          "total": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "teams": {
+            "465": 1
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 1,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "5-4-1",
+            "away": "4-2-3-1"
+          }
+        },
+        "weather": {
+          "temperature": 22.5,
+          "precipitationProbability": 0,
+          "windSpeed": 11.6,
+          "severe": false,
+          "label": "22.5°C，降水0%，风速11.6km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "away",
+          "implied": {
+            "home": 0.184,
+            "draw": 0.2611,
+            "away": 0.5549
+          },
+          "overUnder": 2.5
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760422",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Germany",
+        "away": "Curaçao"
+      },
+      "predicted": "2-1",
+      "actual": "7-1",
+      "exactHit": false,
+      "resultHit": true,
+      "goalError": 5,
+      "reasons": [
+        "总进球误差为5，需要复查首发、红黄牌、天气和大小球线。",
+        "前20分钟出现1个进球，早段进球会打乱原有节奏。",
+        "75分钟后出现2个进球，末段体能和换人影响较大。",
+        "实际进球数高于预测，后续会适当上调开放比赛的总进球倾向。",
+        "实际总进球8与大小球线4.5差距明显，需调整总进球模型。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：近期状态(2.2)、自我学习校准(-0.5)、赔率市场预期(0.44)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 5,
+          "away": 0,
+          "total": 5,
+          "margin": 5
+        },
+        "cardStats": {
+          "total": 0,
+          "yellowCards": 0,
+          "redCards": 0,
+          "teams": {}
+        },
+        "earlyGoals": 1,
+        "lateGoals": 2,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-2-3-1",
+            "away": "4-3-1-2"
+          }
+        },
+        "weather": {
+          "temperature": 29.6,
+          "precipitationProbability": 0,
+          "windSpeed": 13.1,
+          "severe": false,
+          "label": "29.6°C，降水0%，风速13.1km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.4545,
+            "draw": 0.0294,
+            "away": 0.0162
+          },
+          "overUnder": 4.5
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760423",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Ivory Coast",
+        "away": "Ecuador"
+      },
+      "predicted": "2-1",
+      "actual": "1-0",
+      "exactHit": false,
+      "resultHit": true,
+      "goalError": 2,
+      "reasons": [
+        "总进球误差为2，需要复查首发、红黄牌、天气和大小球线。",
+        "75分钟后出现1个进球，末段体能和换人影响较大。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：自我学习校准(-0.5)、小组形势(-0.4)、吃牌风险(-0.24)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": -1,
+          "away": -1,
+          "total": -2,
+          "margin": 0
+        },
+        "cardStats": {
+          "total": 4,
+          "yellowCards": 4,
+          "redCards": 0,
+          "teams": {
+            "209": 1,
+            "4789": 3
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 1,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-4-2",
+            "away": "4-4-2"
+          }
+        },
+        "weather": {
+          "temperature": 28.5,
+          "precipitationProbability": 0,
+          "windSpeed": 17.6,
+          "severe": false,
+          "label": "28.5°C，降水0%，风速17.6km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "away",
+          "implied": {
+            "home": 0.2956,
+            "draw": 0.3202,
+            "away": 0.3842
+          },
+          "overUnder": 1.5
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760424",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Sweden",
+        "away": "Tunisia"
+      },
+      "predicted": "2-1",
+      "actual": "5-1",
+      "exactHit": false,
+      "resultHit": true,
+      "goalError": 3,
+      "reasons": [
+        "总进球误差为3，需要复查首发、红黄牌、天气和大小球线。",
+        "前20分钟出现1个进球，早段进球会打乱原有节奏。",
+        "75分钟后出现2个进球，末段体能和换人影响较大。",
+        "实际进球数高于预测，后续会适当上调开放比赛的总进球倾向。",
+        "实际总进球6与大小球线2.5差距明显，需调整总进球模型。",
+        "赛后/赛前相关新闻命中1条，需结合标题复盘阵容和突发因素。",
+        "赛前主要权重：近期状态(1.2)、自我学习校准(-0.5)、赔率市场预期(0.29)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 3,
+          "away": 0,
+          "total": 3,
+          "margin": 3
+        },
+        "cardStats": {
+          "total": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "teams": {
+            "659": 1
+          }
+        },
+        "earlyGoals": 1,
+        "lateGoals": 2,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "3-1-4-2",
+            "away": "5-3-2"
+          }
+        },
+        "weather": {
+          "label": "天气数据待补全",
+          "severe": false
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.5036,
+            "draw": 0.2828,
+            "away": 0.2136
+          },
+          "overUnder": 2.5
+        },
+        "newsCount": 1
+      }
+    },
+    {
+      "eventId": "760425",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Netherlands",
+        "away": "Japan"
+      },
+      "predicted": "2-1",
+      "actual": "2-2",
+      "exactHit": false,
+      "resultHit": false,
+      "goalError": 1,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "实际进球数高于预测，后续会适当上调开放比赛的总进球倾向。",
+        "赔率市场与本模型同向但一起偏离，说明本场存在赛后突发或低概率事件。",
+        "实际总进球4与大小球线2.5差距明显，需调整总进球模型。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：历史对战(6)、近期状态(-1)、自我学习校准(-0.5)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 0,
+          "away": 1,
+          "total": 1,
+          "margin": -1
+        },
+        "cardStats": {
+          "total": 3,
+          "yellowCards": 3,
+          "redCards": 0,
+          "teams": {
+            "449": 3
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-3-3",
+            "away": "3-4-2-1"
+          }
+        },
+        "weather": {
+          "temperature": 28.6,
+          "precipitationProbability": 0,
+          "windSpeed": 13,
+          "severe": false,
+          "label": "28.6°C，降水0%，风速13km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.2349,
+            "draw": 0.1382,
+            "away": 0.127
+          },
+          "overUnder": 2.5
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760426",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Belgium",
+        "away": "Egypt"
+      },
+      "predicted": "2-1",
+      "actual": "1-1",
+      "exactHit": false,
+      "resultHit": false,
+      "goalError": 1,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "前20分钟出现1个进球，早段进球会打乱原有节奏。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "赔率市场与本模型同向但一起偏离，说明本场存在赛后突发或低概率事件。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：历史对战(-2)、近期状态(1.2)、自我学习校准(-0.5)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": -1,
+          "away": 0,
+          "total": -1,
+          "margin": -1
+        },
+        "cardStats": {
+          "total": 4,
+          "yellowCards": 4,
+          "redCards": 0,
+          "teams": {
+            "459": 2,
+            "2620": 2
+          }
+        },
+        "earlyGoals": 1,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-2-3-1",
+            "away": "4-2-3-1"
+          }
+        },
+        "weather": {
+          "temperature": 27.5,
+          "precipitationProbability": 0,
+          "windSpeed": 1.8,
+          "severe": false,
+          "label": "27.5°C，降水0%，风速1.8km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.3149,
+            "draw": 0.1125,
+            "away": 0.0727
+          },
+          "overUnder": 2.5
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760427",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Iran",
+        "away": "New Zealand"
+      },
+      "predicted": "1-1",
+      "actual": "2-2",
+      "exactHit": false,
+      "resultHit": true,
+      "goalError": 2,
+      "reasons": [
+        "总进球误差为2，需要复查首发、红黄牌、天气和大小球线。",
+        "实际进球数高于预测，后续会适当上调开放比赛的总进球倾向。",
+        "实际总进球4与大小球线2.5差距明显，需调整总进球模型。",
+        "存在政治/签证/旅行风险线索：高。",
+        "赛前主要权重：政治/旅行风险(-1.75)、近期状态(1.2)、自我学习校准(-0.5)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 1,
+          "away": 1,
+          "total": 2,
+          "margin": 0
+        },
+        "cardStats": {
+          "total": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "teams": {
+            "469": 1
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-4-2",
+            "away": "4-2-3-1"
+          }
+        },
+        "weather": {
+          "temperature": 21.9,
+          "precipitationProbability": 0,
+          "windSpeed": 12.2,
+          "severe": false,
+          "label": "21.9°C，降水0%，风速12.2km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.5109,
+            "draw": 0.2769,
+            "away": 0.2123
+          },
+          "overUnder": 2.5
+        },
+        "newsCount": 0
+      }
+    },
+    {
+      "eventId": "760428",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Spain",
+        "away": "Cape Verde"
+      },
+      "predicted": "2-2",
+      "actual": "0-0",
+      "exactHit": false,
+      "resultHit": true,
+      "goalError": 4,
+      "reasons": [
+        "总进球误差为4，需要复查首发、红黄牌、天气和大小球线。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "实际总进球0与大小球线3.5差距明显，需调整总进球模型。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛后/赛前相关新闻命中1条，需结合标题复盘阵容和突发因素。",
+        "赛前主要权重：近期状态(0.6)、自我学习校准(-0.5)、赔率市场预期(0.41)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": -2,
+          "away": -2,
+          "total": -4,
+          "margin": 0
+        },
+        "cardStats": {
+          "total": 2,
+          "yellowCards": 2,
+          "redCards": 0,
+          "teams": {
+            "164": 1,
+            "2597": 1
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-3-3",
+            "away": "4-1-4-1"
+          }
+        },
+        "weather": {
+          "temperature": 26.1,
+          "precipitationProbability": 0,
+          "windSpeed": 11.2,
+          "severe": false,
+          "label": "26.1°C，降水0%，风速11.2km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "home",
+          "implied": {
+            "home": 0.4339,
+            "draw": 0.0434,
+            "away": 0.0228
+          },
+          "overUnder": 3.5
+        },
+        "newsCount": 1
+      }
+    },
+    {
+      "eventId": "760429",
+      "reviewMode": "retrospective",
+      "sampleWeight": 0.55,
+      "teams": {
+        "home": "Saudi Arabia",
+        "away": "Uruguay"
+      },
+      "predicted": "1-2",
+      "actual": "1-1",
+      "exactHit": false,
+      "resultHit": false,
+      "goalError": 1,
+      "reasons": [
+        "胜平负方向未命中，说明基础强弱、战意或赔率权重需要重新校准。",
+        "实际进球数低于预测，后续会适当降低谨慎比赛的总进球倾向。",
+        "赔率市场与本模型同向但一起偏离，说明本场存在赛后突发或低概率事件。",
+        "比赛日天气异常：31.6°C，降水0%，风速10.6km/h，可能压低或改变节奏。",
+        "存在政治/签证/旅行风险线索：低。",
+        "赛前主要权重：历史对战(-2)、自我学习校准(-0.5)、近期状态(-0.4)。",
+        "该场没有真实赛前快照，已作为历史回填样本低权重学习。"
+      ],
+      "evidence": {
+        "scoreDelta": {
+          "home": 0,
+          "away": -1,
+          "total": -1,
+          "margin": 1
+        },
+        "cardStats": {
+          "total": 1,
+          "yellowCards": 1,
+          "redCards": 0,
+          "teams": {
+            "655": 1
+          }
+        },
+        "earlyGoals": 0,
+        "lateGoals": 0,
+        "starters": {
+          "homeCount": 11,
+          "awayCount": 11,
+          "complete": true,
+          "preMatchUnknown": false,
+          "formations": {
+            "home": "4-4-2",
+            "away": "4-2-3-1"
+          }
+        },
+        "weather": {
+          "temperature": 31.6,
+          "precipitationProbability": 0,
+          "windSpeed": 10.6,
+          "severe": true,
+          "label": "31.6°C，降水0%，风速10.6km/h"
+        },
+        "odds": {
+          "provider": "DraftKings",
+          "favorite": "away",
+          "implied": {
+            "home": 0.0636,
+            "draw": 0.1162,
+            "away": 0.3203
+          },
+          "overUnder": 2.5
+        },
+        "newsCount": 0
+      }
+    }
+  ]
+}

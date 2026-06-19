@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup World Cup Collector Data
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/backup-worldcup-collector

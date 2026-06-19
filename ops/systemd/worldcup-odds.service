@@ -1,0 +1,21 @@
+[Unit]
+Description=世界杯十分钟赔率精算快照
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=worldcup
+Group=worldcup
+WorkingDirectory=/opt/worldcup-collector
+EnvironmentFile=/etc/worldcup-collector.env
+# 与小时沙盘共用同一文件锁，冲突时让小时全量任务优先。
+ExecStart=/usr/bin/flock -n -E 0 /opt/worldcup-collector/data/.refresh.lock /usr/local/bin/node src/jobs/odds-refresh.js
+Nice=8
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/worldcup-collector/data
+MemoryMax=900M
+TimeoutStartSec=9min

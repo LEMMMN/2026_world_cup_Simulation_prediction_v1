@@ -1,0 +1,13 @@
+[Unit]
+Description=世界杯每小时学习与沙盘定时器
+
+[Timer]
+# 整点后随机延迟，降低公开来源瞬时压力。
+OnCalendar=hourly
+RandomizedDelaySec=3min
+Persistent=true
+AccuracySec=30s
+Unit=worldcup-hourly.service
+
+[Install]
+WantedBy=timers.target

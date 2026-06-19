@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2026 世界杯本地采集器</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <!-- 页面主体直接进入数据看板，便于本地学习和反复刷新。 -->
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">26</div>
+          <div>
+            <h1>2026 世界杯采集器</h1>
+            <p id="metaLine">等待采集...</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" id="refreshButton" title="刷新采集数据">⟳</button>
+          <button class="icon-button" id="openCacheButton" title="打开轻量概览 JSON">⌁</button>
+        </div>
+      </header>
+
+      <nav class="tabs" aria-label="页面切换">
+        <button class="tab active" data-tab="dashboard">总览</button>
+        <button class="tab" data-tab="matches">赛程</button>
+        <button class="tab" data-tab="teams">球队</button>
+        <button class="tab" data-tab="reviews">复盘</button>
+        <button class="tab" data-tab="odds">赔率</button>
+        <button class="tab" data-tab="news">消息</button>
+        <button class="tab" data-tab="watch">观赛</button>
+      </nav>
+
+      <main>
+        <section class="status-grid" id="statusGrid"></section>
+        <section class="layout" id="view"></section>
+      </main>
+    </div>
+
+    <template id="loadingTemplate">
+      <div class="empty-state">
+        <strong>正在采集实时数据</strong>
+        <span>首次启动会请求赛程、球队、名单、单场摘要、新闻和天气，请稍等。</span>
+      </div>
+    </template>
+
+    <script src="/assets/app.js" type="module"></script>
+  </body>
+</html>

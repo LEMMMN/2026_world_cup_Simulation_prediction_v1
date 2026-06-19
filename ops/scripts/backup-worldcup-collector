@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# 每日保留一份数据快照，七天前的旧备份自动删除。
+backup_dir=/var/backups/worldcup-collector
+source_dir=/opt/worldcup-collector/data
+timestamp=$(date -u +%Y%m%dT%H%M%SZ)
+
+install -d -m 700 "$backup_dir"
+tar -C "$source_dir" -czf "$backup_dir/data-$timestamp.tar.gz" .
+find "$backup_dir" -type f -name 'data-*.tar.gz' -mtime +7 -delete
