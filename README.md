@@ -1,46 +1,14 @@
+
 # 2026 World Cup Simulation & Prediction
 
-这是一个用于世界杯比赛模拟与预测的项目（数据采集、赔率处理、模型学习与仿真）。
+This repository contains the World Cup data collector, learning, and simulation project.
 
-## 快速开始
+Documentation
 
-要求：已安装 Node.js（建议 v14+）和 npm。
+- English: [README_EN.md](README_EN.md)
+- 中文: [README_CN.md](README_CN.md)
 
-安装依赖（若项目使用依赖）：
+Quick start and usage examples are available in the English README. The project provides a zero-dependency Node.js HTTP server and several utility scripts (`src/server.js`, `src/learn.js`, `src/verify.js`). See `package.json` `scripts` for common commands.
 
-```bash
-npm install
-```
+If you intend to publish this repo, please review `data/` for large or sensitive files and consider adding them to `.gitignore` (a recommended `.gitignore` is included).
 
-启动服务（如果 package.json 中定义了 `start` 脚本）：
-
-```bash
-npm start
-# 或
-node src/server.js
-```
-
-或运行单个脚本：
-
-```bash
-node src/learn.js
-node src/verify.js
-```
-
-## 数据目录
-
-项目使用 `data/` 目录存储缓存、赔率历史、学习报表等。该目录中可能包含较大的文件或敏感数据，部署到远端时请注意。
-
-## 项目结构（简要）
-
-- `src/` - 源码与分析模块
-- `public/` - 前端静态文件
-- `data/` - 运行时数据与历史记录
-
-## 贡献与许可证
-
-欢迎在 GitHub 上提 issue 或 pull request。请在提交前确保不包含敏感凭证。仓库采用原作者许可（如需添加 LICENSE，请在提交中补充）。
-
----
-
-仓库地址：https://github.com/LEMMMN/2026_world_cup_Simulation_prediction_v1

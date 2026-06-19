@@ -1,3 +1,22 @@
+# Node
+node_modules/
+.env
+.DS_Store
+
+# Editor
+.vscode/
+*.sublime-workspace
+
+# Data and runtime files
+/data/*.json
+/data/odds-archives/
+/data/learning-reports/
+/data/simulation-runs/
+/data/server.log
+/data/server.pid
+
+# Build / assets
+/public/assets/*.map
 data/cache.json
 data/*.tmp
 .DS_Store
