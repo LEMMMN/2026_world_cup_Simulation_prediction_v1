@@ -1,4 +1,58 @@
 // 页面只在首屏读取轻量概览，比赛、球队、复盘和赔率按需请求并缓存。
+// 简单前端国际化（中/英切换）
+const TRANSLATIONS = {
+  en: {
+    title: "2026 World Cup Collector",
+    tabs: { dashboard: "Overview", matches: "Matches", teams: "Teams", reviews: "Reviews", odds: "Odds", news: "News", watch: "Watch" },
+    buttons: { refreshTitle: "Refresh data", openCacheTitle: "Open overview JSON", langLabel: "中文" },
+    loading: { overview: "Loading overview...", matchDetails: "Loading match details", teamDetails: "Loading team details", learning: "Loading reviews", odds: "Loading odds snapshot" },
+    empty: { noMatches: "No matches", selectTeam: "Please select a team", noRoster: "Roster not collected", noCompletedReviews: "No completed reviews", selectMatch: "Please select a match", noOddsSnapshots: "No odds snapshots for this match", noNews: "No news" },
+    placeholders: { searchTeamsOrVenue: "Search teams / venue", allGroups: "All groups" },
+    status: { all: "All", pre: "Pre-match", in: "In progress", post: "Finished" },
+    error: { overviewUnavailable: "Overview unavailable", matchUnavailable: "Match details unavailable", teamUnavailable: "Team details unavailable", reviewsUnavailable: "Reviews unavailable", oddsUnavailable: "Odds history unavailable" },
+    metric: { matches: "Matches", teams: "Teams", reviews: "Reviews", oddsSnapshots: "Odds snapshots", sources: "Sources" },
+    meta: { updated: "Updated", matchesSuffix: "matches", teamsSuffix: "teams", stale: "using old cache", newsSuffix: "items" },
+    labels: { latestMatches: "Latest match progress", allMatches: "All matches", teamsHeader: "Participating teams", reviewsHeader: "Prediction reviews", scoreOptionsNote: "Top 3 highlighted", newsHeader: "Live news", prefScore: "Preferred score", trend: "Trend", confidence: "Confidence", oddsHeader: "Odds history", minutesSnapshot: "minutes snapshot", sourcesHeader: "Sources status" , noMatchesFound: "No matches found" },
+  },
+  zh: {
+    title: "2026 世界杯采集器",
+    tabs: { dashboard: "总览", matches: "赛程", teams: "球队", reviews: "复盘", odds: "赔率", news: "消息", watch: "观赛" },
+    buttons: { refreshTitle: "刷新采集数据", openCacheTitle: "打开轻量概览 JSON", langLabel: "EN" },
+    loading: { overview: "正在读取轻量概览", matchDetails: "正在读取比赛详情", teamDetails: "正在读取球队详情", learning: "正在读取复盘数据", odds: "正在读取赔率快照" },
+    empty: { noMatches: "暂无比赛", selectTeam: "请选择球队", noRoster: "名单暂未采集", noCompletedReviews: "暂无已完成复盘", selectMatch: "请选择比赛", noOddsSnapshots: "该比赛暂无赔率快照", noNews: "暂无消息" },
+    placeholders: { searchTeamsOrVenue: "搜索球队 / 球场", allGroups: "全部小组" },
+    status: { all: "全部", pre: "未开始", in: "进行中", post: "已结束" },
+    error: { overviewUnavailable: "概览暂不可用", matchUnavailable: "比赛详情暂不可用", teamUnavailable: "球队详情暂不可用", reviewsUnavailable: "复盘数据暂不可用", oddsUnavailable: "赔率快照暂不可用" },
+    metric: { matches: "赛程", teams: "球队", reviews: "复盘", oddsSnapshots: "赔率快照", sources: "采集源" },
+    meta: { updated: "更新", matchesSuffix: "场", teamsSuffix: "队", stale: "使用旧缓存", newsSuffix: "条" },
+    labels: { latestMatches: "最新比赛进程", allMatches: "完整赛程", teamsHeader: "参赛球队", reviewsHeader: "预测复盘", scoreOptionsNote: "前三档重点，保留五档参考", newsHeader: "实时消息", prefScore: "首选比分", trend: "倾向", confidence: "可信度", oddsHeader: "赔率轨迹", minutesSnapshot: "分钟快照", sourcesHeader: "采集源状态", noMatchesFound: "没有匹配赛程" }
+  }
+};
+
+function getLang() {
+  const stored = localStorage.getItem("lang");
+  if (stored) return stored;
+  return navigator.language && navigator.language.startsWith("zh") ? "zh" : "en";
+}
+
+let LANG = getLang();
+
+function t(path) {
+  const parts = path.split(".");
+  let node = TRANSLATIONS[LANG] || TRANSLATIONS.en;
+  for (const p of parts) {
+    node = node?.[p];
+    if (node === undefined) return path;
+  }
+  return node;
+}
+
+function setLang(lang) {
+  LANG = lang === "zh" ? "zh" : "en";
+  localStorage.setItem("lang", LANG);
+  document.documentElement.lang = LANG === "zh" ? "zh-CN" : "en-US";
+  document.title = t('title');
+}
 const state = {
   overview: null,
   activeTab: "dashboard",
@@ -38,12 +92,14 @@ const statusGrid = document.querySelector("#statusGrid");
 const metaLine = document.querySelector("#metaLine");
 const refreshButton = document.querySelector("#refreshButton");
 const openCacheButton = document.querySelector("#openCacheButton");
+const langToggle = document.querySelector("#langToggle");
 
 init();
 
 async function init() {
   bindChrome();
-  showLoading("正在读取轻量概览");
+  setLang(LANG);
+  showLoading(t('loading.overview'));
   await loadOverview(false);
   setInterval(() => loadOverview(false), 120000);
 }
@@ -56,6 +112,30 @@ function bindChrome() {
       await prepareActiveView();
     });
   });
+
+  // set tab labels based on language
+  document.querySelectorAll('.tab').forEach((btn) => {
+    const key = btn.dataset.tab;
+    btn.textContent = t(`tabs.${key}`) || btn.textContent;
+  });
+
+  if (langToggle) {
+    langToggle.textContent = t('buttons.langLabel');
+    langToggle.addEventListener('click', () => {
+      const next = LANG === 'zh' ? 'en' : 'zh';
+      setLang(next);
+      // update UI texts
+      document.querySelectorAll('.tab').forEach((btn) => {
+        const key = btn.dataset.tab;
+        btn.textContent = t(`tabs.${key}`) || btn.textContent;
+      });
+      render();
+      // update button labels/titles
+      refreshButton.title = t('buttons.refreshTitle');
+      openCacheButton.title = t('buttons.openCacheTitle');
+      langToggle.textContent = t('buttons.langLabel');
+    });
+  }
 
   refreshButton.addEventListener("click", async () => {
     refreshButton.disabled = true;
@@ -89,7 +169,7 @@ async function loadOverview(force) {
     await prepareActiveView();
   } catch (error) {
     state.error = error.message;
-    renderError("概览暂不可用", error.message);
+    renderError(t('error.overviewUnavailable'), error.message);
   }
 }
 
@@ -187,15 +267,19 @@ function renderChrome() {
   if (!state.overview) return;
   const meta = state.overview.meta;
   const counts = meta.counts || {};
-  metaLine.textContent = `更新 ${formatDateTime(meta.updatedAt)}，${counts.matches ?? events().length} 场，${counts.teams ?? teams().length} 队${meta.stale ? "，使用旧缓存" : ""}`;
+  const updatedLabel = t('meta.updated');
+  const matchesSuffix = t('meta.matchesSuffix');
+  const teamsSuffix = t('meta.teamsSuffix');
+  const staleText = meta.stale ? `，${t('meta.stale')}` : '';
+  metaLine.textContent = `${updatedLabel} ${formatDateTime(meta.updatedAt)}，${counts.matches ?? events().length} ${matchesSuffix}，${counts.teams ?? teams().length} ${teamsSuffix}${meta.stale ? `，${t('meta.stale')}` : ''}`;
   const sourceRows = Array.isArray(state.overview.sources) ? state.overview.sources : state.overview.sources.status || [];
   const sourceOk = sourceRows.filter((item) => item.ok).length;
   statusGrid.innerHTML = [
-    metric("赛程", counts.matches ?? events().length, "轻量事件索引"),
-    metric("球队", counts.teams ?? teams().length, "按选择读取详情"),
-    metric("复盘", counts.predictionReviews ?? state.overview.learning?.model?.reviewCount ?? 0, "学习样本"),
-    metric("赔率快照", counts.oddsSnapshots ?? state.overview.oddsHistory?.snapshotCount ?? 0, oddsStorageLabel()),
-    metric("采集源", `${sourceOk}/${sourceRows.length}`, "当前可用来源")
+    metric(t('metric.matches'), counts.matches ?? events().length, ""),
+    metric(t('metric.teams'), counts.teams ?? teams().length, ""),
+    metric(t('metric.reviews'), counts.predictionReviews ?? state.overview.learning?.model?.reviewCount ?? 0, ""),
+    metric(t('metric.oddsSnapshots'), counts.oddsSnapshots ?? state.overview.oddsHistory?.snapshotCount ?? 0, oddsStorageLabel()),
+    metric(t('metric.sources'), `${sourceOk}/${sourceRows.length}`, "")
   ].join("");
 }
 
@@ -211,7 +295,7 @@ function renderDashboard() {
   view.className = "layout";
   view.innerHTML = `
     <section class="panel">
-      <div class="panel-header"><h2>最新比赛进程</h2><span class="badge">${events().length} 场</span></div>
+      <div class="panel-header"><h2>${t('labels.latestMatches')}</h2><span class="badge">${events().length} ${t('meta.matchesSuffix')}</span></div>
       ${matchList(latestEvents().slice(0, 18))}
     </section>
     <section class="panel">${detailPanel(selected, detail)}</section>`;
@@ -219,9 +303,9 @@ function renderDashboard() {
 }
 
 function detailPanel(event, detail) {
-  if (!event) return emptyBlock("暂无比赛");
-  if (state.detailLoading === event.id) return loadingBlock("正在读取比赛详情");
-  if (!detail) return errorBlock("比赛详情暂不可用");
+  if (!event) return emptyBlock(t('empty.noMatches'));
+  if (state.detailLoading === event.id) return loadingBlock(t('loading.matchDetails'));
+  if (!detail) return errorBlock(t('error.matchUnavailable'));
   const analysis = detail.analysis || {};
   return `
     <div class="panel-header"><h2>${escapeHtml(matchTitle(event))}</h2><span class="badge">${escapeHtml(groupName(event.group || event.round))}</span></div>
@@ -245,12 +329,12 @@ function scoreboard(event, analysis) {
 }
 
 function analysisBlock(analysis) {
-  if (!analysis.predictedScore && !analysis.scorePredictions?.length) return emptyBlock("分析待生成");
+  if (!analysis.predictedScore && !analysis.scorePredictions?.length) return emptyBlock(t('empty.analysisPending'));
   return `
     <div class="analysis-grid">
-      <div class="analysis-item"><span>首选比分</span><strong>${escapeHtml(analysis.predictedScore?.label || "-")}</strong></div>
-      <div class="analysis-item"><span>倾向</span><strong>${escapeHtml(analysis.favorite || "-")}</strong></div>
-      <div class="analysis-item"><span>可信度</span><strong>${escapeHtml(analysis.confidence ?? "-")}${analysis.confidence != null ? "%" : ""}</strong></div>
+      <div class="analysis-item"><span>${t('labels.prefScore')}</span><strong>${escapeHtml(analysis.predictedScore?.label || "-")}</strong></div>
+      <div class="analysis-item"><span>${t('labels.trend')}</span><strong>${escapeHtml(analysis.favorite || "-")}</strong></div>
+      <div class="analysis-item"><span>${t('labels.confidence')}</span><strong>${escapeHtml(analysis.confidence ?? "-")}${analysis.confidence != null ? "%" : ""}</strong></div>
     </div>
     ${scoreOptions(analysis.scorePredictions)}
     ${simulationBlock(analysis.simulation)}
@@ -308,13 +392,13 @@ function infoCard(title, text) {
 function renderMatches() {
   const groups = unique(events().map((event) => event.group).filter(Boolean));
   const rows = filteredEvents();
-  view.className = "layout single";
-  view.innerHTML = `<section class="panel">
-    <div class="panel-header"><h2>完整赛程</h2><span class="badge">${rows.length} 场</span></div>
+   view.className = "layout single";
+   view.innerHTML = `<section class="panel">
+     <div class="panel-header"><h2>${t('labels.allMatches')}</h2><span class="badge">${rows.length} ${t('meta.matchesSuffix')}</span></div>
     <div class="toolbar">
-      <input id="matchSearch" placeholder="搜索球队 / 球场" value="${escapeAttr(state.matchFilter)}">
-      <select id="groupFilter"><option value="all">全部小组</option>${groups.map((group) => `<option value="${escapeAttr(group)}" ${state.groupFilter === group ? "selected" : ""}>${escapeHtml(groupName(group))}</option>`).join("")}</select>
-      <select id="statusFilter">${selectOption("all", "全部状态", state.statusFilter)}${selectOption("pre", "未开始", state.statusFilter)}${selectOption("in", "进行中", state.statusFilter)}${selectOption("post", "已结束", state.statusFilter)}</select>
+       <input id="matchSearch" placeholder="${t('placeholders.searchTeamsOrVenue')}" value="${escapeAttr(state.matchFilter)}">
+      <select id="groupFilter"><option value="all">${t('placeholders.allGroups')}</option>${groups.map((group) => `<option value="${escapeAttr(group)}" ${state.groupFilter === group ? "selected" : ""}>${escapeHtml(groupName(group))}</option>`).join("")}</select>
+      <select id="statusFilter">${selectOption("all", t('status.all'), state.statusFilter)}${selectOption("pre", t('status.pre'), state.statusFilter)}${selectOption("in", t('status.in'), state.statusFilter)}${selectOption("post", t('status.post'), state.statusFilter)}</select>
     </div>${matchList(rows)}</section>`;
   document.querySelector("#matchSearch").addEventListener("input", (event) => { state.matchFilter = event.target.value; renderMatches(); });
   document.querySelector("#groupFilter").addEventListener("change", (event) => { state.groupFilter = event.target.value; renderMatches(); });
@@ -327,7 +411,7 @@ function renderTeams() {
   const detail = selected ? cache.teams.get(selected.id) : null;
   view.className = "layout";
   view.innerHTML = `
-    <section class="panel"><div class="panel-header"><h2>参赛球队</h2><span class="badge">${teams().length} 支</span></div><div class="detail"><div class="team-grid">${teams().map(teamButton).join("")}</div></div></section>
+    <section class="panel"><div class="panel-header"><h2>${t('labels.teamsHeader')}</h2><span class="badge">${teams().length} ${t('meta.teamsSuffix')}</span></div><div class="detail"><div class="team-grid">${teams().map(teamButton).join("")}</div></div></section>
     <section class="panel">${teamDetailPanel(selected, detail)}</section>`;
   document.querySelectorAll("[data-team-id]").forEach((button) => button.addEventListener("click", async () => {
     state.selectedTeamId = button.dataset.teamId;
@@ -343,9 +427,9 @@ function teamButton(team) {
 }
 
 function teamDetailPanel(team, detail) {
-  if (!team) return emptyBlock("请选择球队");
-  if (state.detailLoading === team.id) return loadingBlock("正在读取球队详情");
-  if (!detail) return errorBlock("球队详情暂不可用");
+  if (!team) return emptyBlock(t('empty.selectTeam'));
+  if (state.detailLoading === team.id) return loadingBlock(t('loading.teamDetails'));
+  if (!detail) return errorBlock(t('error.teamUnavailable'));
   const roster = detail.roster || {};
   return `<div class="panel-header"><h2>${escapeHtml(teamName(team))}</h2><span class="badge">${escapeHtml(groupName(team.group))}</span></div>
     <div class="detail"><div class="score-team">${logo(team, true)}<strong>${escapeHtml(team.abbreviation || "")}</strong></div>
@@ -371,17 +455,17 @@ function rosterTable(players) {
 function renderReviews() {
   view.className = "layout single";
   if (state.detailLoading === "learning") {
-    view.innerHTML = `<section class="panel">${loadingBlock("正在读取复盘数据")}</section>`;
+    view.innerHTML = `<section class="panel">${loadingBlock(t('loading.learning'))}</section>`;
     return;
   }
   if (!state.learning) {
-    view.innerHTML = `<section class="panel">${errorBlock("复盘数据暂不可用")}</section>`;
+    view.innerHTML = `<section class="panel">${errorBlock(t('error.reviewsUnavailable'))}</section>`;
     return;
   }
   const { model, reviews } = state.learning;
   view.innerHTML = `<section class="panel">
-    <div class="panel-header"><h2>预测复盘</h2><span class="badge">${reviews.length} 场</span></div>
-    <div class="detail">${learningMetrics(model)}<div class="review-list">${reviews.map(reviewCard).join("") || emptyBlock("暂无已完成复盘")}</div></div>
+    <div class="panel-header"><h2>${t('labels.reviewsHeader')}</h2><span class="badge">${reviews.length} ${t('meta.matchesSuffix')}</span></div>
+    <div class="detail">${learningMetrics(model)}<div class="review-list">${reviews.map(reviewCard).join("") || emptyBlock(t('empty.noCompletedReviews'))}</div></div>
   </section>`;
 }
 
@@ -432,7 +516,7 @@ function renderOdds() {
   const availableEvents = eventsWithOdds();
   view.className = "layout single";
   view.innerHTML = `<section class="panel">
-    <div class="panel-header"><h2>赔率轨迹</h2><span class="badge">10分钟快照</span></div>
+    <div class="panel-header"><h2>${t('labels.oddsHeader')}</h2><span class="badge">10 ${t('labels.minutesSnapshot')}</span></div>
     <div class="toolbar"><select id="oddsMatch">${availableEvents.map((item) => `<option value="${escapeAttr(item.id)}" ${item.id === state.selectedEventId ? "selected" : ""}>${escapeHtml(formatDateTime(item.date))} · ${escapeHtml(matchTitle(item))}</option>`).join("")}</select></div>
     <div class="detail">${oddsPanel(event, history)}</div>
   </section>`;
@@ -445,11 +529,11 @@ function renderOdds() {
 }
 
 function oddsPanel(event, history) {
-  if (!event) return emptyBlock("请选择比赛");
-  if (state.detailLoading === event.id) return loadingBlock("正在读取赔率快照");
-  if (!history) return errorBlock("赔率快照暂不可用");
+  if (!event) return emptyBlock(t('empty.selectMatch'));
+  if (state.detailLoading === event.id) return loadingBlock(t('loading.odds'));
+  if (!history) return errorBlock(t('error.oddsUnavailable'));
   const snapshots = normalizeSnapshots(history, event.id);
-  if (!snapshots.length) return emptyBlock("该比赛暂无赔率快照");
+  if (!snapshots.length) return emptyBlock(t('empty.noOddsSnapshots'));
   const latest = snapshots[0];
   const actuary = latest.actuary || latest.oddsActuary || {};
   const prices = latest.scorePrices || latest.scorePredictions || [];
@@ -498,8 +582,8 @@ function oddsHistoryTable(snapshots) {
 function renderNews() {
   const sourceRows = Array.isArray(state.overview.sources) ? state.overview.sources : state.overview.sources.status || [];
   view.className = "layout";
-  view.innerHTML = `<section class="panel"><div class="panel-header"><h2>实时消息</h2><span class="badge">${state.overview.news.length} 条</span></div><div class="news-list">${state.overview.news.map(newsRow).join("") || emptyBlock("暂无消息")}</div></section>
-    <section class="panel"><div class="panel-header"><h2>采集源状态</h2></div><div class="detail source-table">${sourceRows.map((item) => `<div class="source-row"><strong>${escapeHtml(item.name)}</strong><span class="effect ${item.ok ? "positive" : "negative"}">${item.ok ? "成功" : "失败"}${item.durationMs != null ? ` · ${item.durationMs}ms` : ""}</span></div>`).join("")}</div></section>`;
+  view.innerHTML = `<section class="panel"><div class="panel-header"><h2>${t('labels.newsHeader')}</h2><span class="badge">${state.overview.news.length} ${t('meta.newsSuffix')}</span></div><div class="news-list">${state.overview.news.map(newsRow).join("") || emptyBlock(t('empty.noNews'))}</div></section>
+    <section class="panel"><div class="panel-header"><h2>${t('labels.sourcesHeader') || 'Sources status'}</h2></div><div class="detail source-table">${sourceRows.map((item) => `<div class="source-row"><strong>${escapeHtml(item.name)}</strong><span class="effect ${item.ok ? "positive" : "negative"}">${item.ok ? "成功" : "失败"}${item.durationMs != null ? ` · ${item.durationMs}ms` : ""}</span></div>`).join("")}</div></section>`;
 }
 
 function newsRow(item) {
@@ -525,7 +609,7 @@ function watchLinks(event, detail) {
 }
 
 function matchList(rows) {
-  return `<div class="match-list">${rows.map(matchRow).join("") || emptyBlock("没有匹配赛程")}</div>`;
+  return `<div class="match-list">${rows.map(matchRow).join("") || emptyBlock(t('labels.noMatchesFound') || t('empty.noMatches'))}</div>`;
 }
 
 function matchRow(event) {
@@ -627,7 +711,9 @@ function shortDate(value) {
 function formatDateTime(value) {
   if (!value) return "-";
   const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? String(value) : new Intl.DateTimeFormat("zh-CN", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" }).format(date);
+  if (Number.isNaN(date.getTime())) return String(value);
+  const locale = LANG === 'zh' ? 'zh-CN' : 'en-US';
+  return new Intl.DateTimeFormat(locale, { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).format(date);
 }
 
 function groupName(value) {
